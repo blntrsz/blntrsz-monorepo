@@ -1,0 +1,49 @@
+{
+  "plugins": [
+    "@nxtensions/astro"
+  ],
+  "npmScope": "blntrsz-monorepo",
+  "namedInputs": {
+    "default": [
+      "{projectRoot}/**/*",
+      "sharedGlobals"
+    ],
+    "production": [
+      "default"
+    ],
+    "sharedGlobals": []
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    },
+    "check": {
+      "inputs": [
+        "production",
+        "^production"
+      ]
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "check"
+        ],
+        "accessToken": "NjZhZDI3YTQtMjZkNi00NjI2LTg2NWQtMThhNzQ0NjMxNWM5fHJlYWQtd3JpdGU="
+      }
+    }
+  },
+  "defaultProject": "blog"
+}
